@@ -7,8 +7,8 @@
       <div class="app__cart">
         <div class="app__cart-wrapper">
           <cart-title class="app__cart-title"></cart-title>
-          <ul class="app__item-list">
-            <cart-item class="app__item"
+          <ul class="app__cart-list">
+            <cart-item class="app__cart-item"
                   v-for="(item, index) in items"
                   :key="index"
                   :title="item.title"
@@ -24,6 +24,7 @@
         </div>
         <cart-summary></cart-summary>
       </div>
+      <viewed-products></viewed-products>
     </main>
   </div>
 </template>
@@ -34,6 +35,7 @@ import CartTitle from "@/components/cart-title";
 import CartItem from "@/components/cart-item";
 import InstallCheck from "@/components/install-check";
 import CartSummary from "@/components/cart-summary";
+import ViewedProducts from "@/components/viewed-products";
 
 export default {
   name: 'App',
@@ -43,6 +45,7 @@ export default {
     CartTitle,
     CartItem,
     CartSummary,
+    ViewedProducts,
   },
   data: () => ({
     items: [
@@ -96,14 +99,14 @@ export default {
   grid-gap: 50px;
   grid-template-columns: 2fr 1fr;
   align-items: center;
-  margin-bottom: 96px;
+  margin-bottom: 95px;
 }
 
 .app__cart-title {
   margin-bottom: 40px;
 }
 
-.app__item-list {
+.app__cart-list {
   margin: 0;
   margin-left: 20px;
   margin-bottom: 40px;
@@ -111,17 +114,12 @@ export default {
   list-style: none;
 }
 
-.app__item {
+.app__cart-item {
   margin-top: 20px;
 }
 
-.app__item:not(:last-child) {
+.app__cart-item:not(:last-child) {
   padding-bottom: 20px;
   border-bottom: 1px solid var(--grey-lighter);
-}
-
-.app__cart-summary {
-  border-radius: 5px;
-  background-color: var(--grey-light);
 }
 </style>
