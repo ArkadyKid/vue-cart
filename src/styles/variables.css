@@ -6,4 +6,7 @@
   --grey-light: #F6F8FA;
   --grey-lighter: #C4C4C4;
   --white: #FFFFFF;
+
+  --border-radius-background: 5px;
+  --border-radius-card: 4px;
 }

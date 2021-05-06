@@ -24,7 +24,7 @@ export default {
     align-items: center;
     gap: 20px;
     padding: 28px 25px;
-    border-radius: 5px;
+    border-radius: var(--border-radius-background);
     background-color: var(--grey-light);
   }
 

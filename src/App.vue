@@ -22,9 +22,7 @@
           </ul>
           <install-check></install-check>
         </div>
-        <div class="app__cart-summary">
-
-        </div>
+        <cart-summary></cart-summary>
       </div>
     </main>
   </div>
@@ -35,6 +33,7 @@ import CartPreview from "@/components/cart-preview";
 import CartTitle from "@/components/cart-title";
 import CartItem from "@/components/cart-item";
 import InstallCheck from "@/components/install-check";
+import CartSummary from "@/components/cart-summary";
 
 export default {
   name: 'App',
@@ -43,6 +42,7 @@ export default {
     CartPreview,
     CartTitle,
     CartItem,
+    CartSummary,
   },
   data: () => ({
     items: [
