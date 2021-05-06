@@ -1,23 +1,24 @@
 <template>
-  <li class="item">
-    <img class="item__img"
-         :src="'../assets/items/' + src + '.jpg'"
+  <li class="cart-item">
+    <img class="cart-item__img"
+         :src="src"
          alt="продукт"
          width="100" height="100">
-    <div class="item__info">
-      <h5 class="item__title">{{ title }}</h5>
-      <p class="item__description">{{ description }}</p>
-      <span class="item__article">{{ article }}</span>
+    <div class="cart-item__info">
+      <h5 class="cart-item__title">{{ title }}</h5>
+      <p class="cart-item__description">{{ description }}</p>
+      <span class="cart-item__article">{{ article }}</span>
     </div>
-    <div class="item__counter">
-      <button class="item__counter-button">-</button>
-      <span class="item__counter-count">{{ count }}</span>
-      <button class="item__counter-button">+</button>
+    <div class="cart-item__counter">
+      <button class="cart-item__counter-button">-</button>
+      <span class="cart-item__counter-count">{{ count }}</span>
+      <button class="cart-item__counter-button">+</button>
+      <span class="cart-item__counter-additional" v-if="additional">{{ additional }} &#8381;/шт.</span>
     </div>
-    <span class="item__price">{{ price }} &#8381;</span>
-    <button class="item__del" type="button">
+    <span class="cart-item__price">{{ price }} &#8381;</span>
+    <button class="cart-item__del" type="button">
       <svg width="12" height="12"
-           class="item__del-icon">
+           class="cart-item__del-icon">
         <use xlink:href="../assets/sprite.svg#cross"></use>
       </svg>
     </button>
@@ -26,7 +27,7 @@
 
 <script>
 export default {
-  name: "item",
+  name: "cart-item",
   props: {
     src: {
       type: String,
@@ -52,47 +53,52 @@ export default {
       type: String,
       default: '',
     },
+    additional: {
+      type: String,
+      default: '',
+    }
   },
 }
 </script>
 
 <style scoped lang="css">
-  .item {
+  .cart-item {
     position: relative;
     display: grid;
     grid-template-columns: 130px minmax(auto, 343px) 1fr 1fr;
     align-items: center;
   }
 
-  .item__img {
+  .cart-item__img {
     margin-right: 30px;
   }
 
-  .item__del {
+  .cart-item__del {
     position: absolute;
     top: 0;
     right: 0;
+    padding: 0;
     background-color: transparent;
     border: none;
     cursor: pointer;
   }
 
-  .item__del-icon {
+  .cart-item__del-icon {
     stroke: var(--black);
   }
 
-  .item__info {
+  .cart-item__info {
     margin-right: 80px;
   }
 
-  .item__title {
+  .cart-item__title {
     margin: 0;
     margin-bottom: 6px;
     font-weight: 600;
     line-height: 1.45;
   }
 
-  .item__description {
+  .cart-item__description {
     margin: 0;
     margin-bottom: 7px;
     color: var(--black-light);
@@ -100,21 +106,22 @@ export default {
     line-height: 1.5;
   }
 
-  .item__article {
+  .cart-item__article {
     font-size: 14px;
     line-height: 1.5;
     color: var(--grey);
   }
 
-  .item__counter {
+  .cart-item__counter {
+    position: relative;
     display: grid;
-    grid-gap: 2px;
+    gap: 2px;
     grid-template-columns: repeat(3, 34px);
     justify-content: center;
   }
 
-  .item__counter-button,
-  .item__counter-count {
+  .cart-item__counter-button,
+  .cart-item__counter-count {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -124,19 +131,29 @@ export default {
     border: none;
   }
 
-  .item__counter-button {
+  .cart-item__counter-button {
+    padding: 0;
     cursor: pointer;
   }
 
-  .item__counter-button:first-of-type {
+  .cart-item__counter-button:first-of-type {
     border-radius: 4px 0 0 4px;
   }
 
-  .item__counter-button:last-of-type {
+  .cart-item__counter-button:last-of-type {
     border-radius: 0 4px 4px 0;
   }
 
-  .item__price {
+  .cart-item__price {
     text-align: center;
+  }
+
+  .cart-item__counter-additional {
+    position: absolute;
+    bottom: calc(calc(12px * -1.45) - 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    line-height: 1.45;
   }
 </style>
