@@ -15,6 +15,7 @@
                   :description="item.description"
                   :article="item.article"
                   :count="item.count"
+                  :alt="item.alt"
                   :additional="item.additional"
                   :src="require('./assets/items/' + item.src + '.jpg')"
                   :price="item.price">
@@ -54,6 +55,7 @@ export default {
         description: '12-72/168 м3/ч / гидрорегулируемый расход / от датчика присутствия',
         article: 'Артикул: G2H1065',
         src: 'item-1',
+        alt: 'Вытяжное устройство G2H',
         count: 1,
         price: '12 644',
       },
@@ -62,6 +64,7 @@ export default {
         description: '12-72/168 м3/ч / гидрорегулируемый расход / от датчика присутствия',
         article: 'Артикул: G2H1065',
         src: 'item-2',
+        alt: 'Вытяжное устройство BXC',
         count: 2,
         price: '25 288',
         additional: '12 644',
@@ -71,6 +74,7 @@ export default {
         description: '12-72/168 м3/ч / гидрорегулируемый расход / от датчика присутствия',
         article: 'Артикул: G2H1065',
         src: 'item-3',
+        alt: 'Вытяжное устройство GHN',
         count: 1,
         price: '12 644',
       },
@@ -83,6 +87,7 @@ export default {
 .app {
   margin: 0 auto;
   width: 1280px;
+  padding-bottom: 116px;
 }
 
 .app__header {

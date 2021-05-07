@@ -22,12 +22,77 @@
         </button>
       </div>
     </div>
+    <ul class="viewed-products__list">
+      <viewed-item
+          v-for="(item, index) in items"
+          :key="index"
+          :alt="item.alt"
+          :src="require('../assets/viewed/' + item.src + '.png')"
+          :title="item.title"
+          :description="item.description"
+          :price-euro-max="item.priceEuroMax"
+          :price-euro-min="item.priceEuroMin"
+          :price-ruble-max="item.priceRubleMax"
+          :price-ruble-min="item.priceRubleMin"
+          :href="item.href"
+      ></viewed-item>
+    </ul>
   </div>
 </template>
 
 <script>
+import ViewedItem from "@/components/viewed-item";
 export default {
-  name: "viewed-products"
+  name: "viewed-products",
+  components: {ViewedItem},
+  data: () => ({
+    items: [
+      {
+        src: 'item-1',
+        alt: 'Вытяжное устройство для механической системы вентиляции',
+        title: 'BXC',
+        description: 'Вытяжное устройство для механической системы вентиляции',
+        priceEuroMax: '6 848',
+        priceEuroMin: '56 584',
+        priceRubleMax: '77.60',
+        priceRubleMin: '643.86',
+        href: '#',
+      },
+      {
+        src: 'item-2',
+        alt: 'Многофункциональное вытяжное устройство для естественной и гибридной вентиляции',
+        title: 'G2H',
+        description: 'Многофункциональное вытяжное устройство для естественной и гибридной вентиляции',
+        priceEuroMax: '6 848',
+        priceEuroMin: '56 584',
+        priceRubleMax: '77.60',
+        priceRubleMin: '643.86',
+        href: '#',
+      },
+      {
+        src: 'item-3',
+        alt: 'Вытяжное устройство с датчиком присутствия',
+        title: 'GHN',
+        description: 'Вытяжное устройство с датчиком присутствия',
+        priceEuroMax: '6 848',
+        priceEuroMin: '56 584',
+        priceRubleMax: '77.60',
+        priceRubleMin: '643.86',
+        href: '#',
+      },
+      {
+        src: 'item-4',
+        alt: 'Вытяжное устройство с датчиком присутствия',
+        title: 'TDA',
+        description: 'Вытяжное устройство с датчиком присутствия',
+        priceEuroMax: '6 848',
+        priceEuroMin: '56 584',
+        priceRubleMax: '77.60',
+        priceRubleMin: '643.86',
+        href: '#',
+      },
+    ],
+  }),
 }
 </script>
 
@@ -88,5 +153,15 @@ export default {
     font-size: 24px;
     line-height: 1.5;
     font-weight: 500;
+  }
+
+  .viewed-products__list {
+    display: grid;
+    grid-template-rows: 563px;
+    grid-template-columns: repeat(auto-fill, 305px);
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
   }
 </style>

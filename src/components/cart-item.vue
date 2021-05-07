@@ -2,7 +2,7 @@
   <li class="cart-item">
     <img class="cart-item__img"
          :src="src"
-         alt="продукт"
+         :alt="alt"
          width="100" height="100">
     <div class="cart-item__info">
       <h5 class="cart-item__title">{{ title }}</h5>
@@ -30,6 +30,10 @@ export default {
   name: "cart-item",
   props: {
     src: {
+      type: String,
+      default: '',
+    },
+    alt: {
       type: String,
       default: '',
     },
